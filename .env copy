@@ -1,18 +1,18 @@
 APP_NAME="Sangguniang Bayan Management System"
-APP_ENV=production
+APP_ENV=local
 APP_KEY=base64:dxhlzLgzadiWSE7YkejWpcucDwqT+j3pcCiLxDULY00=
-APP_DEBUG=false
-APP_URL=https://commesr.io
+APP_DEBUG=true
+APP_URL=http://localhost
 
 LOG_CHANNEL=stack
 LOG_LEVEL=debug
 
 DB_CONNECTION=mysql
-DB_HOST=mysql-laravel-db
+DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=management
 DB_USERNAME=root
-DB_PASSWORD=rooted
+DB_PASSWORD=
 
 BROADCAST_DRIVER=log
 CACHE_DRIVER=file

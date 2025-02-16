@@ -17,6 +17,7 @@ class TrustHosts extends Middleware
 
             $this->allSubdomainsOfApplicationUrl(),
             'http://localhost:3000',
+            'https://commesr.io:9000',
         ];
     }
 }
