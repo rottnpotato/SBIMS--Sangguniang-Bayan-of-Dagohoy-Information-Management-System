@@ -24,34 +24,34 @@ class ResidentInfoController extends Controller
             return redirect("login");
         }
         
-        $area_setting = area_setting::all();
+        // $area_setting = area_setting::all();
 
-        $resident = resident_info::latest()->get();
-        if ($request->ajax()) {
-            $data = resident_info::latest()->get();
-            return Datatables::of($data)
-                    ->addIndexColumn()
-                    ->addColumn('checkbox', function($row){
-                        $chk = '
-                             <input type="checkbox" class="flat icheckbox_flat-green text-center checkBoxClass" id="checked"  name="ids" data-id="'.$row->resident_id.'" name="table_records">';
-                        return $chk;
-                    })
-                    ->addColumn('action', function($row){
-                        $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->resident_id.'" data-original-title="Edit" class="edit btn btn-info  btn-xs pr-4 pl-4 editResident"><i class="fa fa-pencil fa-lg"></i> </a>';
-                        $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"   data-id="'.$row->resident_id.'" data-original-title="Delete" class="btn btn-danger btn-xs pr-4 pl-4 deleteresident"><i class="fa fa-trash fa-lg"></i> </a>';
-                        $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->resident_id.'" data-original-title="View" class="btn btn-primary btn-xs pr-4 pl-4 viewresident"><i class="fa fa-folder fa-lg"></i> </a>';
-                         return $btn;
-                 })
-                   ->rawColumns(['checkbox','action'])
-                    ->make(true);
-
-
+        // $resident = resident_info::latest()->get();
+        // if ($request->ajax()) {
+        //     $data = resident_info::latest()->get();
+        //     return Datatables::of($data)
+        //             ->addIndexColumn()
+        //             ->addColumn('checkbox', function($row){
+        //                 $chk = '
+        //                      <input type="checkbox" class="flat icheckbox_flat-green text-center checkBoxClass" id="checked"  name="ids" data-id="'.$row->resident_id.'" name="table_records">';
+        //                 return $chk;
+        //             })
+        //             ->addColumn('action', function($row){
+        //                 $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->resident_id.'" data-original-title="Edit" class="edit btn btn-info  btn-xs pr-4 pl-4 editResident"><i class="fa fa-pencil fa-lg"></i> </a>';
+        //                 $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"   data-id="'.$row->resident_id.'" data-original-title="Delete" class="btn btn-danger btn-xs pr-4 pl-4 deleteresident"><i class="fa fa-trash fa-lg"></i> </a>';
+        //                 $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->resident_id.'" data-original-title="View" class="btn btn-primary btn-xs pr-4 pl-4 viewresident"><i class="fa fa-folder fa-lg"></i> </a>';
+        //                  return $btn;
+        //          })
+        //            ->rawColumns(['checkbox','action'])
+        //             ->make(true);
 
 
 
-        }
 
-        return view('pages.AdminPanel.resident',[compact('resident'),'area_setting'=>$area_setting]);
+
+        // }
+
+        return view('pages.AdminPanel.resident');
     }
     public function store(Request $request)
     {

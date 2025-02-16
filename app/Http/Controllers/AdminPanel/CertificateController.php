@@ -21,37 +21,37 @@ class CertificateController extends Controller
             return redirect("login");
         }
         
-        $brgy_official = brgy_official::where('position','!=','Punong Barangay')
-        ->get();
-        $puno = brgy_official::where('position','=','Punong Barangay')
-        ->get();
-        $content = Certificate_list::get();
+        // $brgy_official = brgy_official::where('position','!=','Punong Barangay')
+        // ->get();
+        // $puno = brgy_official::where('position','=','Punong Barangay')
+        // ->get();
+        // $content = Certificate_list::get();
 
-        $certrequest = Certificate_request::latest()
-        ->where('paid','=','No')
-        ->get();
-        if ($request->ajax()) {
-            $data = Certificate_request::latest()
-            ->where('paid','=','No')
-            ->get();
-            return Datatables::of($data)
-                    ->addIndexColumn()
+        // $certrequest = Certificate_request::latest()
+        // ->where('paid','=','No')
+        // ->get();
+        // if ($request->ajax()) {
+        //     $data = Certificate_request::latest()
+        //     ->where('paid','=','No')
+        //     ->get();
+        //     return Datatables::of($data)
+        //             ->addIndexColumn()
 
-                    ->addColumn('action', function($row){
-                        $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->request_id.'" data-original-title="Edit" class="edit btn btn-info  btn-xs pr-4 pl-4 editrequest"><i class="fa fa-pencil fa-lg"></i> </a>';
-                        $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"   data-id="'.$row->request_id.'" data-original-title="Delete" class="btn btn-danger btn-xs pr-4 pl-4 deleterequest"><i class="fa fa-trash fa-lg"></i> </a>';
-                          return $btn;
-                 })
-                   ->rawColumns(['action'])
-                    ->make(true);
-
-
+        //             ->addColumn('action', function($row){
+        //                 $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->request_id.'" data-original-title="Edit" class="edit btn btn-info  btn-xs pr-4 pl-4 editrequest"><i class="fa fa-pencil fa-lg"></i> </a>';
+        //                 $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"   data-id="'.$row->request_id.'" data-original-title="Delete" class="btn btn-danger btn-xs pr-4 pl-4 deleterequest"><i class="fa fa-trash fa-lg"></i> </a>';
+        //                   return $btn;
+        //          })
+        //            ->rawColumns(['action'])
+        //             ->make(true);
 
 
 
-        }
 
-        return view('pages.AdminPanel.certificate',[compact('certrequest'),'brgy_official2'=>$brgy_official,'brgy_official'=>$brgy_official,'puno'=>$puno,'puno2'=>$puno,'approve'=>$puno,'approve2'=>$puno,'content'=>$content]);
+
+        // }
+
+        return view('pages.AdminPanel.certificate');
     }
 
 

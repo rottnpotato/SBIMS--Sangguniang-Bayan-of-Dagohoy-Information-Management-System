@@ -136,6 +136,8 @@ Route::get('/api/user-data', [CommitteeController::class, 'getUserData']);
 //Certificate Module
 
 Route::resource('certificate', CertificateController::class);
+
+
 Route::get('certificate/table/paid', [CertificateController::class, 'certrequestpaid'])->name('certrequestpaid.index');
 Route::get('certificate/table/unpaid', [CertificateController::class, 'index'])->name('certrequestunpaid.index');
 
