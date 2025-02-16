@@ -183,7 +183,7 @@ Route::post("/setting/account/form",[AccountController::class, 'accountSettingCh
     Route::get("/logout", [UserController::class, 'logout']);
 
 //account management
-Route::post('/account/store', [AccountManager::class, 'store'])->name('account.store');
+Route::post('/account/store', [AccountManager::class, 'store']);
 Route::get('/get-sb-members', [AccountManager::class, 'getSBMembers']);
 Route::get('/pending-accounts', [AccountManager::class, 'getPendingAccounts'])->middleware('admin.only');
 Route::post('/approve-reject-account', [AccountManager::class, 'approveRejectAccount'])->middleware('admin.only');
